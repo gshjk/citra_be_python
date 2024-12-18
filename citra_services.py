@@ -13,6 +13,7 @@ CORS(app)
 MIME_PNG = 'image/png'
 MIME_JPEG = 'image/jpeg'
 
+
 def read_image(file):
     """Fungsi untuk membaca gambar dari file."""
     img = cv2.imdecode(np.frombuffer(file.read(), np.uint8), cv2.IMREAD_COLOR)
@@ -27,6 +28,11 @@ def convert_image_to_buffer(image, format='jpg'):
     else:  # default to jpg
         _, buffer = cv2.imencode('.jpg', image)
     return io.BytesIO(buffer)
+
+@app.route('/')
+def home():
+    """Route default yang mengembalikan pesan layanan."""
+    return "SERVICE BACKEND PYTHON V.1"
 
 @app.route('/grayscale', methods=['POST'])
 def convert_to_grayscale():
