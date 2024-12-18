@@ -55,7 +55,7 @@ def blur_edges():
         
         h, w = img.shape[:2]
         
-        edge_thickness_h = int(h * 0.25)
+        edge_thickness_h = int(h * 0.15)
         edge_thickness_w = int(w * 0.25) 
         
         # Create a mask for the edges
